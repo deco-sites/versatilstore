@@ -75,7 +75,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
   const discount = price && listPrice ? listPrice - price : 0;
 
   return (
-    <>
+    <div class="bg-zinc-200 p-4 rounded">
       {/* Breadcrumb */}
       <Breadcrumb
         itemListElement={breadcrumbList?.itemListElement.slice(0, -1)}
@@ -88,28 +88,34 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
           </span>
         </div>
         <h1>
-          <span class="font-medium text-xl">{name}</span>
+          <span class="font-medium text-xl text-sky-700">{name}</span>
         </h1>
       </div>
       {/* Prices */}
       <div class="mt-4">
-        <div class="flex flex-row gap-2 items-center">
-          <span class="line-through text-base-300 text-xs">
-            {formatPrice(listPrice, offers!.priceCurrency!)}
+        <div class="flex gap-2 items-start flex-col">
+          <span class="line-through text-base-300 text-xs text-sky-700 flex flex-row">
+            <p class="text-neutral-400">de:</p> {formatPrice(listPrice, offers!.priceCurrency!)}
           </span>
-          <span class="font-medium text-xl text-secondary">
-            {formatPrice(price, offers!.priceCurrency!)}
+          <span class="font-medium text-xl text-secondary flex flex-row">
+          <p class="text-neutral-400">por:</p> {formatPrice(price, offers!.priceCurrency!)}
           </span>
         </div>
-        <span class="text-sm text-base-300">
+        {/* <span class="text-sm text-base-300">
           {installments}
-        </span>
+        </span> */}
       </div>
       {/* Sku Selector */}
-      <div class="mt-4 sm:mt-6">
+      {/* <div class="mt-4 sm:mt-6">
         <ProductSelector product={product} />
-      </div>
+      </div> */}
       {/* Add to Cart and Favorites button */}
+            {/* Description card */}
+      <div class="mt-4 sm:mt-6">
+        <span class="text-sm">
+        {description}
+        </span>
+      </div>
       <div class="mt-4 sm:mt-10 flex flex-col gap-2">
         {availability === "https://schema.org/InStock"
           ? (
@@ -154,17 +160,6 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
           }]}
         />
       </div>
-      {/* Description card */}
-      <div class="mt-4 sm:mt-6">
-        <span class="text-sm">
-          {description && (
-            <details>
-              <summary class="cursor-pointer">Descrição</summary>
-              <div class="ml-2 mt-2">{description}</div>
-            </details>
-          )}
-        </span>
-      </div>
       {/* Analytics Event */}
       <SendEventOnLoad
         event={{
@@ -181,7 +176,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
           },
         }}
       />
-    </>
+    </div>
   );
 }
 

@@ -113,14 +113,14 @@ export default function FAQ(props: Props) {
       )}
 
       {layout?.variation === "Full" && (
-        <div class="w-full container px-4 py-8 flex flex-col gap-4 lg:gap-8 lg:py-10 lg:px-0">
+        <div class="w-full container px-2 py-4 flex flex-col gap-4 lg:gap-8 lg:py-10 lg:px-0 bg-zinc-200">
           <div class="flex flex-col gap-8 lg:gap-10">
             <Header
               title={title || ""}
               description={description || ""}
               alignment={layout?.headerAlignment || "center"}
             />
-            <div class="join join-vertical w-full">
+            <div class="join join-vertical w-full text-amber-800">
               {questions.map((question) => <Question {...question} />)}
             </div>
           </div>

@@ -159,7 +159,7 @@ function ProductCard({ product, preload, itemListName, layout }: Props) {
             alt={front.alternateName}
             width={WIDTH}
             height={HEIGHT}
-            class={`bg-base-100 col-span-full row-span-full rounded w-full ${
+            class={`bg-base-100 col-span-full row-span-full w-full ${
               l?.onMouseOver?.image == "Zoom image"
                 ? "duration-100 transition-scale scale-100 lg:group-hover:scale-125"
                 : ""
