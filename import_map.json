@@ -1,5 +1,7 @@
 {
   "imports": {
+    "deco-sites/versatilstore/": "./",
+
     "deco-sites/staging/": "./",
     "deco-sites/fashion/": "./",
     "$store/": "./",
